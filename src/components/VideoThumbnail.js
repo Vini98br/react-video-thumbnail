@@ -30,7 +30,7 @@ export default class VideoThumbnail extends React.Component {
             suspended: false,       // boolean
             // props
             cors: props.cors,                           // boolean
-            value: props.value                          // any
+            value: props.value,                         // any
             width: props.width,                         // number
             height: props.height,                       // number
             renderThumbnail: props.renderThumbnail,     // boolean
