@@ -1017,7 +1017,7 @@ var ThumbnailImage = function ThumbnailImage(_ref) {
     return React.createElement(
         'div',
         { className: 'react-thumbnail-generator' },
-        React.createElement('input', { src: snapshot, value:value, alt: 'my video thumbnail' })
+        React.createElement('input', { type:"image", src: snapshot, value: value, alt: 'my video thumbnail' })
     );
 };
 
@@ -1037,8 +1037,10 @@ var VideoThumbnail = function (_React$Component) {
 
                 var video = _this.refs.videoEl;
                 var canvas = _this.refs.canvas;
-                canvas.height = video.videoHeight;
-                canvas.width = video.videoWidth;
+                // canvas.height = video.videoHeight;
+                // canvas.width = video.videoWidth;
+                canvas.height = _this$props.height;
+                canvas.width = _this$props.width;
 
                 // resize thumbnail or no ?
                 if (!width || !height) {
@@ -1076,6 +1078,7 @@ var VideoThumbnail = function (_React$Component) {
             // props
             cors: props.cors, // boolean
             width: props.width, // number
+            value: props.value, // any
             height: props.height, // number
             renderThumbnail: props.renderThumbnail, // boolean
             snapshotAtTime: props.snapshotAtTime, // number
@@ -1094,6 +1097,7 @@ var VideoThumbnail = function (_React$Component) {
                 renderThumbnail = _state.renderThumbnail,
                 snapshot = _state.snapshot,
                 videoUrl = _state.videoUrl;
+                value = _state.value;
 
             if (!snapshot) {
                 return React.createElement(
@@ -1120,7 +1124,7 @@ var VideoThumbnail = function (_React$Component) {
                 );
             } else {
                 if (renderThumbnail) {
-                    return React.createElement(ThumbnailImage, { snapshot: snapshot });
+                    return React.createElement(ThumbnailImage, { snapshot: snapshot, value: value });
                 } else {
                     return null;
                 }
@@ -1196,6 +1200,7 @@ var VideoThumbnail = function (_React$Component) {
 }(React.Component);
 VideoThumbnail.propTypes = {
     cors: propTypes.bool,
+    value: propTypes.any,
     width: propTypes.number,
     height: propTypes.number,
     renderThumbnail: propTypes.bool,
