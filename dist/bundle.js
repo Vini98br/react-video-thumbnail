@@ -1033,6 +1033,7 @@ var VideoThumbnail = function (_React$Component) {
             try {
                 var _this$props = _this.props,
                     width = _this$props.width,
+                    // value = _this$props.value,
                     height = _this$props.height;
 
                 var video = _this.refs.videoEl;
@@ -1057,7 +1058,8 @@ var VideoThumbnail = function (_React$Component) {
                 canvas.remove();
 
                 _this.setState({
-                    snapshot: thumbnail
+                    snapshot: thumbnail,
+                    // value: value
                 });
 
                 // pass the thumbnail url back to parent component's thumbnail handler (if any)
@@ -1096,7 +1098,7 @@ var VideoThumbnail = function (_React$Component) {
             var _state = this.state,
                 renderThumbnail = _state.renderThumbnail,
                 snapshot = _state.snapshot,
-                videoUrl = _state.videoUrl;
+                videoUrl = _state.videoUrl,
                 value = _state.value;
 
             if (!snapshot) {
