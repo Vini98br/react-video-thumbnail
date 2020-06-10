@@ -1013,11 +1013,11 @@ var possibleConstructorReturn = function (self, call) {
  */
 var ThumbnailImage = function ThumbnailImage(_ref) {
     var snapshot = _ref.snapshot;
-
+    var value = _ref.value;
     return React.createElement(
         'div',
         { className: 'react-thumbnail-generator' },
-        React.createElement('img', { src: snapshot, alt: 'my video thumbnail' })
+        React.createElement('input', { src: snapshot, value:value, alt: 'my video thumbnail' })
     );
 };
 
