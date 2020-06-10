@@ -10,10 +10,10 @@ import './video-thumbnail.css';
  * Simple component that renders thumbnail url
  * @param {string} snapshot
  */
-const ThumbnailImage = ({ snapshot }) => {
+const ThumbnailImage = ({ snapshot, value }) => {
     return (
         <div className="react-thumbnail-generator" >
-            <img src={snapshot} alt="my video thumbnail" />
+            <input type="image" src={snapshot} alt="my video thumbnail" value={value} />
         </div>
     );
 }
@@ -30,6 +30,7 @@ export default class VideoThumbnail extends React.Component {
             suspended: false,       // boolean
             // props
             cors: props.cors,                           // boolean
+            value: props.value                          // any
             width: props.width,                         // number
             height: props.height,                       // number
             renderThumbnail: props.renderThumbnail,     // boolean
@@ -40,7 +41,7 @@ export default class VideoThumbnail extends React.Component {
     }
 
     render() {
-        const { renderThumbnail, snapshot, videoUrl } = this.state;
+        const { renderThumbnail, snapshot, videoUrl, value } = this.state;
         if (!snapshot) {
             return (
                 <div className="react-thumbnail-generator" >
@@ -59,7 +60,7 @@ export default class VideoThumbnail extends React.Component {
             )
         } else {
             if (renderThumbnail) {
-                return <ThumbnailImage snapshot={snapshot} />;
+                return <ThumbnailImage snapshot={snapshot} value={value} />;
             } else {
                 return null;
             }
